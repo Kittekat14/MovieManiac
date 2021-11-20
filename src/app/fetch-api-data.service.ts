@@ -37,7 +37,7 @@ export class UserRegistrationService {
     console.log(userDetails);
     
     return this.http
-      .post(apiUrl + 'users', userDetails)
+      .post(apiUrl + 'register', userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -67,11 +67,11 @@ export class UserRegistrationService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getOneMovie(apiUrl: string): Observable<any> {
+  getOneMovie(movieId: string): Observable<any> {
     const token = localStorage.getItem('token');
 
     return this.http
-      .get(apiUrl + 'movies/:movieId', {
+      .get(apiUrl + `movies/${movieId}`, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
