@@ -10,11 +10,11 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule
+    BrowserModule, // responsible for the DOM and needed for Web Applications (not Mobile/Desktop)
+    HttpClientModule, // responsible for http requests
+    AppRoutingModule // responsible for Routing
   ],
-  providers: [],
+  providers: [], // to declare another provider other than root-app
   bootstrap: [AppComponent]
 })
 export class AppModule { }

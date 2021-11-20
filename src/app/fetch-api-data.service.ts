@@ -1,25 +1,28 @@
 import { Injectable } from '@angular/core';
-import { catchError } from 'rxjs/internal/operators';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
+
 import {
   HttpClient,
   HttpHeaders,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://actor-inspector.herokuapp.com/';
+
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root', // to make component, where we're in, available in root level
 })
+
 export class UserRegistrationService {
-  // Inject the HttpClient module to the constructor params
-  // This will provide HttpClient to the entire class, making it available via this.http
-  constructor(private http: HttpClient) {
-    this.http = http;
-  }
+  // Inject the HttpClient module to the constructor params:
+  // This will provide HttpClient to the entire class, making it available via "this.http"
+  constructor(
+    private http: HttpClient
+    ) { } // inside { }: dependency injection
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
@@ -39,9 +42,11 @@ export class UserRegistrationService {
       .post(apiUrl + 'users', userDetails)
       .pipe(catchError(this.handleError));
   }
+
   public userLogin(userDetails: any): Observable<any> {
     const token = localStorage.getItem('token');
     const { username, password } = userDetails;
+    console.log(userDetails, token);
     return this.http
       .post(apiUrl + 'login?Username=' + username + '&Password=' + password, {
         headers: new HttpHeaders({
