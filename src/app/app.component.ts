@@ -19,13 +19,4 @@ export class AppComponent {
       width: '480px'
     });
   }
-
-  valueForm = new FormGroup({
-    input: new FormControl(),
-    username: new FormControl()
-  });
-
-  // onSubmit() {
-  //   console.log(this.valueForm.value);
-  // }
 }

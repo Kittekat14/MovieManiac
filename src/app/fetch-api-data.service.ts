@@ -34,12 +34,18 @@ export class FetchApiDataService {
     return throwError('Something bad happened. Please try again later.');
   }
 
+  // Non-typed response extraction
+  private extractResponseData(res: any): any {
+    const body = res;
+    return body || {};
+  }
+
   // Making Api Calls to all Api Endpoints:
   public userRegistration(userDetails: any): Observable<any> {
     console.log(userDetails);
 
     return this.http
-      .post(apiUrl + 'register', userDetails)
+      .post(apiUrl + 'users', userDetails)
       .pipe(catchError(this.handleError));
   }
 
@@ -195,11 +201,5 @@ export class FetchApiDataService {
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
-  }
-
-  // non-typed response extraction
-  private extractResponseData(res: any | object): any {
-    const body = res;
-    return body || {};
   }
 }
