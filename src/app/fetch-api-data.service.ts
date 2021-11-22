@@ -41,18 +41,18 @@ export class FetchApiDataService {
   }
 
   // Making Api Calls to all Api Endpoints:
-  public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  public userRegistration(userData: any): Observable<any> {
+    console.log(userData);
 
     return this.http
-      .post(apiUrl + 'users', userDetails)
+      .post(apiUrl + 'users', userData)
       .pipe(catchError(this.handleError));
   }
 
-  public userLogin(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  public userLogin(userData: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username, password } = userDetails;
+    const { username, password } = userData;
     console.log(token);
 
     return this.http
