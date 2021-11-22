@@ -112,10 +112,10 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  getUser(userData: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userDetails;
+    const { username } = userData;
     console.log(token);
 
     return this.http
@@ -127,14 +127,14 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  editUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  editUser(userData: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userDetails;
+    const { username } = userData;
     console.log(token);
 
     return this.http
-      .put(apiUrl + `users/${username}`, userDetails, {
+      .put(apiUrl + `users/${username}`, userData, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -142,10 +142,10 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  deleteUser(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  deleteUser(userData: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userDetails;
+    const { username } = userData;
     console.log(token);
 
     return this.http
@@ -157,10 +157,10 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getAllFavorites(userDetails: any): Observable<any> {
-    console.log(userDetails);
+  getAllFavorites(userData: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userDetails;
+    const { username } = userData;
 
     return this.http
       .get(apiUrl + `users/${username}/favorites`, {
@@ -170,10 +170,10 @@ export class FetchApiDataService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  addToFavorites(userDetails: any, movie_id: any): Observable<any> {
-    console.log(userDetails);
+  addToFavorites(userData: any, movie_id: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userDetails;
+    const { username } = userData;
     const { movieId } = movie_id;
 
     return this.http
@@ -188,10 +188,10 @@ export class FetchApiDataService {
       )
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  removeFromFavorites(userDetails: any, movie_id: any): Observable<any> {
-    console.log(userDetails);
+  removeFromFavorites(userData: any, movie_id: any): Observable<any> {
+    console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userDetails;
+    const { username } = userData;
     const { movieId } = movie_id;
 
     return this.http
