@@ -1,13 +1,13 @@
 <mat-card>
     <mat-card-header>
-      <mat-card-title>Here you can log in:</mat-card-title>
+      <mat-card-title class="login-modal">Here you can log in:</mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <form>
         <mat-form-field>
           <input
             matInput
-            [(ngModel)]="userData.Username"
+            [(ngModel)]="userData.username"
             placeholder="Username"
             type="text"
             name="Username"
@@ -17,7 +17,7 @@
           <mat-form-field>
           <input
             matInput
-            [(ngModel)]="userData.Password"
+            [(ngModel)]="userData.password"
             placeholder="Password"
             type = "password"
             name="Password"
@@ -32,7 +32,7 @@
           (click)="loginUser()"
           color="primary"
         >
-          Sign Up
+          Sign In
         </button>
     </mat-card-actions>
   </mat-card>
