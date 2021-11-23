@@ -56,7 +56,7 @@ export class FetchApiDataService {
     console.log(token);
 
     return this.http
-      .post(apiUrl + 'login?Username=' + username + '&Password=' + password, {
+      .post(apiUrl + 'login?username=' + username + '&password=' + password, {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -76,11 +76,11 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getOneMovie(movieId: string): Observable<any> {
+  getOneMovie(apiUrl: string): Observable<any> {
     const token = localStorage.getItem('token');
 
     return this.http
-      .get(apiUrl + `movies/${movieId}`, {
+      .get(apiUrl + 'movies/:title', {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
@@ -170,11 +170,11 @@ export class FetchApiDataService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  addToFavorites(userData: any, movie_id: any): Observable<any> {
+  addToFavorites(userData: any, movieid: any): Observable<any> {
     console.log(userData);
     const token = localStorage.getItem('token');
     const { username } = userData;
-    const { movieId } = movie_id;
+    const { movieId } = movieid;
 
     return this.http
       .post(
@@ -188,11 +188,11 @@ export class FetchApiDataService {
       )
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  removeFromFavorites(userData: any, movie_id: any): Observable<any> {
+  removeFromFavorites(userData: any, movieid: any): Observable<any> {
     console.log(userData);
     const token = localStorage.getItem('token');
     const { username } = userData;
-    const { movieId } = movie_id;
+    const { movieId } = movieid;
 
     return this.http
       .delete(apiUrl + `users/${username}/favorites/${movieId}`, {
