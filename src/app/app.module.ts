@@ -15,6 +15,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { AllMoviesComponent } from './all-movies/all-movies.component';
 
 
 //import {MatDialogRef} from '@angular/material/dialog'
@@ -25,7 +26,8 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    AllMoviesComponent
   ],
   imports: [
     BrowserModule, // responsible for the DOM and needed for Web Applications (not Mobile/Desktop)

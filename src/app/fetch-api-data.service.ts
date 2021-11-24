@@ -70,7 +70,7 @@ export class FetchApiDataService {
     return this.http
       .get(apiUrl + 'movies', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer  ' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));

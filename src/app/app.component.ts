@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 
@@ -24,6 +25,13 @@ export class AppComponent {
   openUserLoginDialog(): void {
     this.dialog.open(UserLoginFormComponent, {
       width: '480px'
+    });
+
+  }
+
+  openMoviesDialog(): void {
+    this.dialog.open(AllMoviesComponent, {
+      width: '500px'
     });
 
   }
