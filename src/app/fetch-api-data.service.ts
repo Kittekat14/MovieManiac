@@ -50,11 +50,10 @@ export class FetchApiDataService {
   }
 
   public userLogin(userData: any): Observable<any> {
-    console.log(userData);
     const token = localStorage.getItem('token');
     const { username, password } = userData;
     console.log(token);
-
+    console.log(userData);
     return this.http
       .post(apiUrl + 'login?username=' + username + '&password=' + password, {
         headers: new HttpHeaders({
