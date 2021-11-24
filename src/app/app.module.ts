@@ -19,11 +19,16 @@ import { MatIconModule } from '@angular/material/icon';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
 import { AllMoviesComponent } from './all-movies/all-movies.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { OneMovieComponent } from './one-movie/one-movie.component';
+import { DirectorComponent } from './director/director.component';
+import { GenreComponent } from './genre/genre.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
   {path: 'welcome', component: WelcomePageComponent},
   {path: 'movies', component: AllMoviesComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: '', redirectTo: 'welcome', pathMatch: 'prefix'},
 ];
 
@@ -35,6 +40,10 @@ const appRoutes: Routes = [
     UserLoginFormComponent,
     AllMoviesComponent,
     WelcomePageComponent,
+    OneMovieComponent,
+    DirectorComponent,
+    GenreComponent,
+    ProfileComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
