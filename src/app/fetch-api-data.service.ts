@@ -51,16 +51,9 @@ export class FetchApiDataService {
 
   public userLogin(userData: any): Observable<any> {
     console.log(userData);
-    const token = localStorage.getItem('token');
-    const { username, password } = userData;
-    console.log(token);
-
+    
     return this.http
-      .post(apiUrl + 'login?username=' + username + '&password=' + password, {
-        headers: new HttpHeaders({
-          Authorization: 'Bearer ' + token,
-        }),
-      })
+      .post(apiUrl + 'login', userData)
       .pipe(catchError(this.handleError));
   }
 
@@ -70,7 +63,7 @@ export class FetchApiDataService {
     return this.http
       .get(apiUrl + 'movies', {
         headers: new HttpHeaders({
-          Authorization: 'Bearer  ' + token,
+          Authorization: 'Bearer ' + token,
         }),
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
