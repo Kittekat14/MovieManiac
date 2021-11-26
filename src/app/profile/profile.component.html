@@ -3,9 +3,7 @@
 <div>{{ userData.username }}</div>
 <div>{{ userData.password }}</div>
 <div>{{ userData.email }}</div>
-<div>{{ userData.birthdate }}</div>
-<div>Favorites:</div>
-<ul>
-    <li>Favorite</li>
-</ul>
+<div>{{ userData.birthdate | date :  'mediumDate' }}</div>
+<div>{{ userData.favorites.title[0] }}</div>
+
 </div>

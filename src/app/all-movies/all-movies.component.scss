@@ -1,0 +1,17 @@
+.genre-button {
+    font-size: 12px; 
+    border-radius: 5px; 
+    padding: 2px;
+    background-color: #52e6e6;
+}
+
+.genre-button, .director-button, .details-button {
+    color: #000;
+}
+
+.movie-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+}

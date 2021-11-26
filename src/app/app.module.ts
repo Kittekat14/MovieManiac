@@ -23,7 +23,9 @@ import { OneMovieComponent } from './one-movie/one-movie.component';
 import { DirectorComponent } from './director/director.component';
 import { GenreComponent } from './genre/genre.component';
 import { ProfileComponent } from './profile/profile.component';
-
+import { MatListModule } from '@angular/material/list';
+import { NavbarComponent } from './navbar/navbar.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
@@ -32,7 +34,6 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
   { path: '**', component: WelcomePageComponent },
 ];
-
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     DirectorComponent,
     GenreComponent,
     ProfileComponent,
+    NavbarComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -61,6 +63,8 @@ const appRoutes: Routes = [
     MatFormFieldModule,
     MatSnackBarModule,
     MatIconModule,
+    MatListModule,
+    MatPaginatorModule
   ],
   exports: [RouterModule],
   providers: [], // to declare another provider other than root-app
