@@ -7,21 +7,22 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  users: any[] = [];
+  userData = { username: '', password: '', email: '', birthdate: '' };
   constructor(public fetchApiData: FetchApiDataService) {}
 
   ngOnInit(): void {
-    this.getUser();
+    this.showUser();
+    this.getFavorites();
   }
 
   // Here there should be the function that calls getUser function in fetchDataApi file
-  getUser(): void {
-    let user = localStorage.getItem('user');
-
-    this.fetchApiData.getUser(user).subscribe((res: any) => {
-      this.users = res;
-      console.log(this.users);
-      return this.users;
+  showUser(): void {
+    this.fetchApiData.getUser(this.userData).subscribe((resp: any) => {
+      this.userData = resp;
+      console.log(this.userData);
+      return this.userData;
     });
   }
+
+  getFavorites() {}
 }

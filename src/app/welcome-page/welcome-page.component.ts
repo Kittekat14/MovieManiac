@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { AllMoviesComponent } from '../all-movies/all-movies.component';
+import { ProfileComponent } from '../profile/profile.component';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
 import { UserRegistrationFormComponent } from '../user-registration-form/user-registration-form.component';
 
@@ -11,7 +12,6 @@ import { UserRegistrationFormComponent } from '../user-registration-form/user-re
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
-  
   constructor(public dialog: MatDialog) {}
   ngOnInit(): void {}
 
@@ -28,5 +28,16 @@ export class WelcomePageComponent implements OnInit {
     });
   }
 
+  openMoviesDialog(): void {
+    this.dialog.open(AllMoviesComponent, {
+      width: '500px',
+    });
+  }
+
+  showUser(): void {
+    this.dialog.open(ProfileComponent, {
+      width: '500px',
+    });
+  }
 
 }

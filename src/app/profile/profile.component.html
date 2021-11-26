@@ -1,9 +1,9 @@
-<h2>Profile Infos:</h2>
-<div>Username:</div>
-<div>Password:</div>
-<div>Email Adress:</div>
-<div>Birthdate:</div>
+<h2>Your Profile</h2>
+<div>{{userData.username}}</div>
+<div>{{userData.password}}</div>
+<div>{{userData.email}}</div>
+<div>{{userData.birthdate}}</div>
 <div>Favorites:</div>
-<ul *ngFor="let movie of movies">
-    <li>{{movie.title}}</li>
+<ul>
+    <li>Favorite</li>
 </ul>
