@@ -3,6 +3,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
 
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,20 +15,38 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatIconModule } from '@angular/material/icon';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
+import { AllMoviesComponent } from './all-movies/all-movies.component';
+import { WelcomePageComponent } from './welcome-page/welcome-page.component';
+import { OneMovieComponent } from './one-movie/one-movie.component';
+import { DirectorComponent } from './director/director.component';
+import { GenreComponent } from './genre/genre.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
-//import {MatDialogRef} from '@angular/material/dialog'
-// ...
+const appRoutes: Routes = [
+  {path: 'welcome', component: WelcomePageComponent},
+  {path: 'movies', component: AllMoviesComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: '', redirectTo: 'welcome', pathMatch: 'prefix'},
+];
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginFormComponent
+    UserLoginFormComponent,
+    AllMoviesComponent,
+    WelcomePageComponent,
+    OneMovieComponent,
+    DirectorComponent,
+    GenreComponent,
+    ProfileComponent,
   ],
   imports: [
+    RouterModule.forRoot(appRoutes),
     BrowserModule, // responsible for the DOM and needed for Web Applications (not Mobile/Desktop)
     HttpClientModule, // responsible for http requests
     AppRoutingModule, // responsible for Routing
@@ -39,9 +58,11 @@ import { UserLoginFormComponent } from './user-login-form/user-login-form.compon
     MatButtonModule,
     MatCardModule,
     MatFormFieldModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatIconModule,
   ],
+  exports: [RouterModule],
   providers: [], // to declare another provider other than root-app
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
