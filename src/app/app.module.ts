@@ -26,10 +26,11 @@ import { ProfileComponent } from './profile/profile.component';
 
 
 const appRoutes: Routes = [
-  {path: 'welcome', component: WelcomePageComponent},
-  {path: 'movies', component: AllMoviesComponent},
-  {path: 'profile', component: ProfileComponent},
-  {path: '', redirectTo: 'welcome', pathMatch: 'prefix'},
+  { path: 'welcome', component: WelcomePageComponent },
+  { path: 'movies', component: AllMoviesComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: '**', component: WelcomePageComponent },
 ];
 
 

@@ -38,6 +38,7 @@ export class WelcomePageComponent implements OnInit {
     this.dialog.open(ProfileComponent, {
       width: '500px',
     });
+
   }
 
 }

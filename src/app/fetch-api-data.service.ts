@@ -105,11 +105,8 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getUser(userData: any): Observable<any> {
-    console.log(userData);
+  getUser(username: any): Observable<any> {
     const token = localStorage.getItem('token');
-    const { username } = userData;
-    console.log(token);
 
     return this.http
       .get(apiUrl + `users/${username}`, {
