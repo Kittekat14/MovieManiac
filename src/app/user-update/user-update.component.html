@@ -1,0 +1,59 @@
+<!-- user-update-component is a child component to profile-component -->
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>Change Your User Details:</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.username"
+            placeholder="Username"
+            type="text"
+            name="Username"
+            required
+          > Your new Username will be : {{ userData.username }}
+          </mat-form-field>
+          <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.password"
+            placeholder="Password"
+            type = "password"
+            name="Password"
+            required
+          > Your new Password will be : {{ userData.password }}
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.email"
+            placeholder="Email"
+            type = "email"
+            name="Email"
+            required
+          > Your new Email Address will be : {{ userData.email }}
+        </mat-form-field>
+        <mat-form-field>
+          <input
+            matInput
+            [(ngModel)]="userData.birthdate"
+            placeholder="Birthday"  
+            type = "date"
+            name="Birthday"
+          > Your new Birthdate will be : {{ userData.birthdate | date : "mediumDate" }}
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button
+          mat-raised-button
+          (click)="changeUser()"
+          color="primary"
+        >
+          Save Updates
+        </button>
+    </mat-card-actions>
+  </mat-card>
+
