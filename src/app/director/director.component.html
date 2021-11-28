@@ -1,1 +1,18 @@
-<p>director works!</p>
+<mat-card class="director-card">
+    <button mat-icon-button color="dark" [mat-dialog-close]="true" style="margin-bottom: 2rem; position: absolute; right: 1rem">
+        <mat-icon class="close-button">close</mat-icon>
+    </button>
+
+  <mat-card-subtitle>Director of Movie:</mat-card-subtitle>
+  <mat-card-title>{{ directorData.name }}</mat-card-title>
+  <mat-card-content>
+
+    <mat-card-subtitle>Biography:</mat-card-subtitle>
+    <mat-card-subtitle>{{ directorData.bio }}</mat-card-subtitle>
+    <mat-card-title>Year of Birth:</mat-card-title>
+    <mat-card-subtitle>{{ directorData.birthyear }}</mat-card-subtitle>
+
+  </mat-card-content>
+
+
+</mat-card>

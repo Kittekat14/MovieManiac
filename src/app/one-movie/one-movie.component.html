@@ -1,1 +1,18 @@
-<p>one-movie works!</p>
+
+<mat-card class="director-card">
+    <button mat-icon-button color="dark" [mat-dialog-close]="true" style="margin-bottom: 2rem; position: absolute; right: 1rem">
+        <mat-icon class="close-button">close</mat-icon>
+    </button>
+
+  <mat-card-title class="title">{{ movieData.title }}</mat-card-title>
+  <mat-card-subtitle class="release-year">{{ movieData.year }}</mat-card-subtitle>
+  <mat-card-content>
+    <p class="description">{{ movieData.description }}</p>
+    <p class="genre"><i>Genre:</i> {{ movieData.genre.name | titlecase }}</p>
+    <p class="director"><i>Director:</i> {{ movieData.director.name }}</p>
+    <p class="actors">{{ movieData.actors.join(' | ') }}</p>
+
+  </mat-card-content>
+
+
+</mat-card>

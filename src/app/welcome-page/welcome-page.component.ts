@@ -30,7 +30,7 @@ export class WelcomePageComponent implements OnInit {
 
   openMoviesDialog(): void {
     this.dialog.open(AllMoviesComponent, {
-      width: '500px',
+      width: '1000px',
     });
   }
 

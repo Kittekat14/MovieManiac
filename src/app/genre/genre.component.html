@@ -1,1 +1,14 @@
-<p>genre works!</p>
+<mat-card class="genre-card">
+    <button mat-icon-button color="dark" [mat-dialog-close]="true" style="margin-bottom: 2rem; position: absolute; right: 1rem">
+        <mat-icon class="close-button">close</mat-icon>
+    </button>
+
+  <mat-card-subtitle>Genre Description:</mat-card-subtitle>
+  <mat-card-title>{{ genreData.name | titlecase }}</mat-card-title>
+
+  <mat-card-content>
+    <mat-card-subtitle>{{ genreData.description }}</mat-card-subtitle>
+  </mat-card-content>
+  
+
+</mat-card>

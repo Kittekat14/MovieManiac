@@ -13,20 +13,27 @@
     
     <mat-card-actions>
         <button
+          routerLink="/genres"
           mat-button
-          selected class="genre-button">
-            {{ movie.genre.name | uppercase }}
-          </button>
+          selected class="genre-button"
+          (click)='openGenreDialog(movie.genre.name, movie.genre.description)'
+          >{{ movie.genre.name | uppercase }}
+        </button>
         <button
+          routerLink="/directors"
           mat-button
           class="director-button"
-            >{{movie.director.name}}</button>
+          (click)='openDirectorDialog(movie.director.name, movie.director.bio, movie.director.birthyear)'
+            >{{movie.director.name}}
+        </button>
         <button
+          routerLink="/details"
           mat-button
           class="details-button"
+          (click)="openMovieDialog(movie.title, movie.description, movie.year, movie.genre, movie.director, movie.actors)"
             >Details
         </button>
-				<mat-icon>favorite_border</mat-icon>
+				<button mat-button>ADD TO FAVORITES</button>
     </mat-card-actions>
 	</mat-card>
 
