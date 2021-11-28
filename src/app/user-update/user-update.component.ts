@@ -1,8 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { FetchApiDataService } from '../fetch-api-data.service';
-
 
 @Component({
   selector: 'app-user-update',
@@ -10,8 +9,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./user-update.component.scss'],
 })
 export class UserUpdateComponent implements OnInit {
-  user: any = JSON.parse(localStorage.getItem('user') || '');
 
+  user: any = JSON.parse(localStorage.getItem('user') || '');
+  
   @Input() userData = {
     username: this.user.username,
     password: '',
@@ -19,32 +19,29 @@ export class UserUpdateComponent implements OnInit {
     birthdate: this.user.birthdate,
   };
 
-  token = localStorage.getItem('token');
-
   constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: { onSuccess: () => void },
     public fetchApiData: FetchApiDataService,
-    public router: Router,
+    public dialogRef: MatDialogRef<UserUpdateComponent>,
     public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
 
   changeUser(): void {
-    this.fetchApiData.editUser(this.userData.username, this.userData).subscribe(
-      (response) => {
-        localStorage.setItem('user', JSON.stringify(response));
-        localStorage.setItem('token', response.token);
-        //localStorage.setItem('user', JSON.stringify(response.user));
-                //localStorage.setItem('user', JSON.stringify(response));
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);      
-    },
-      (result) => {
-        this.snackBar.open(result, 'OK', {
-          duration: 3000,
+    this.fetchApiData
+      .editUser(this.user.username, this.userData)
+      .subscribe((res) => {
+        this.dialogRef.close();
+        //updating the localStorage with the updated user
+        localStorage.setItem('user', JSON.stringify(res));
+        this.snackBar.open('You successfully updated your profile!', 'OK', {
+          duration: 2000,
         });
-      }
-    );
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      });
   }
 }

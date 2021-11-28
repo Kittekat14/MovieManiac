@@ -31,7 +31,7 @@ import { UserUpdateComponent } from './user-update/user-update.component';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: AllMoviesComponent },
-  { path: 'profile', component: ProfileComponent },
+  { path: 'users', component: ProfileComponent },
   { path: 'directors', component: AllMoviesComponent },
   { path: 'genres', component: AllMoviesComponent },
   { path: 'details', component: AllMoviesComponent },
