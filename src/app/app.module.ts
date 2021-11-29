@@ -16,6 +16,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginFormComponent } from './user-login-form/user-login-form.component';
@@ -31,7 +32,7 @@ import { UserUpdateComponent } from './user-update/user-update.component';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: AllMoviesComponent },
-  { path: 'users', component: ProfileComponent },
+  { path: 'profile', component: ProfileComponent },
   { path: 'directors', component: AllMoviesComponent },
   { path: 'genres', component: AllMoviesComponent },
   { path: 'details', component: AllMoviesComponent },
@@ -69,6 +70,7 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     MatIconModule,
     MatListModule,
+    MatGridListModule
     
   ],
   exports: [RouterModule],

@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit, Input } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FetchApiDataService } from '../fetch-api-data.service';
 
@@ -20,10 +19,7 @@ export class UserUpdateComponent implements OnInit {
   };
 
   constructor(
-    @Inject(MAT_DIALOG_DATA)
-    public data: { onSuccess: () => void },
     public fetchApiData: FetchApiDataService,
-    public dialogRef: MatDialogRef<UserUpdateComponent>,
     public snackBar: MatSnackBar
   ) {}
 
@@ -33,11 +29,18 @@ export class UserUpdateComponent implements OnInit {
     this.fetchApiData
       .editUser(this.user.username, this.userData)
       .subscribe((res) => {
-        this.dialogRef.close();
         //updating the localStorage with the updated user
         localStorage.setItem('user', JSON.stringify(res));
         this.snackBar.open('You successfully updated your profile!', 'OK', {
           duration: 2000,
+        });
+        setTimeout(() => {
+          window.location.reload();
+        }, 2000);
+      },
+      (res) => {
+        this.snackBar.open(res, 'OK', {
+          duration: 3000,
         });
         setTimeout(() => {
           window.location.reload();

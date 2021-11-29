@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
-import { UserUpdateComponent } from '../user-update/user-update.component';
+
 
 @Component({
   selector: 'app-profile',
@@ -9,6 +9,9 @@ import { UserUpdateComponent } from '../user-update/user-update.component';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
+  user: any = JSON.parse(localStorage.getItem('user') || '');
+  favorites: any[] = this.user.favorites;
+
   @Input() userData: any = {};
 
   constructor(
@@ -18,19 +21,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.showUser();
-    // this.getFavorites();
   }
 
   // Here there should be the function that calls getUser function in fetchDataApi file
   showUser(): void {
     let user = JSON.parse(localStorage.getItem('user') || '');
     this.fetchApiData.getUser(user.username).subscribe((res: any) => {
-
       this.userData = res;
       return this.userData;
-
     });
   }
-
-  // getFavorites() {}
 }

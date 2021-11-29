@@ -33,7 +33,7 @@
           (click)="openMovieDialog(movie.title, movie.description, movie.year, movie.genre, movie.director, movie.actors)"
             >Details
         </button>
-				<button mat-button>ADD TO FAVORITES</button>
+				<button mat-button (click)="addToFavs(movie._id, movie.title)">ADD TO FAVORITES</button>
     </mat-card-actions>
 	</mat-card>
 

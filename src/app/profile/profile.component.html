@@ -19,7 +19,21 @@
     <h3 matLine> Your Birthday </h3>
     <p matLine>{{ userData.birthdate | date :  'mediumDate' }} </p>
   </mat-list-item>
+  <mat-list-item>
+    <h3 matLine> Your Favorite Movies </h3>
+    <p matLine>{{ userData.favorites.title }} </p>
+  </mat-list-item>
 </mat-list>
+
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+      *ngFor="let favorite of userData.favorites"
+      [colspan]="favorite.cols"
+      [rowspan]="favorite.rows">
+    {{favorite.title}}
+  </mat-grid-tile>
+</mat-grid-list>
+
 
 <app-user-update></app-user-update>
 

@@ -144,10 +144,10 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  getAllFavorites(userData: any): Observable<any> {
-    console.log(userData);
+  getAllFavorites(username: string): Observable<any> {
+    //console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userData;
+    // const { username } = userData;
 
     return this.http
       .get(apiUrl + `users/${username}/favorites`, {
@@ -157,15 +157,15 @@ export class FetchApiDataService {
       })
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  addToFavorites(userData: any, movieid: any): Observable<any> {
-    console.log(userData);
+  addToFavorites(username: string, movieid: any): Observable<any> {
+    //console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userData;
-    const { movieId } = movieid;
+    //const { username } = userData;
+    //const { movieId } = movieid;
 
     return this.http
       .post(
-        apiUrl + `users/${username}/favorites/${movieId}`,
+        apiUrl + `users/${username}/favorites/${movieid}`,
         {},
         {
           headers: new HttpHeaders({
