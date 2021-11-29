@@ -23,7 +23,7 @@ export class UserDeleteComponent implements OnInit {
     if (confirm('Are you sure you want to delete your profile?')) {
       localStorage.clear();
       this.router.navigate(['welcome']);
-      this.snackBar.open('You successfully deleted you account', 'OK', {
+      this.snackBar.open('You successfully deleted your account', 'OK', {
         duration: 3000,
       });
     }
