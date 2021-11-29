@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -9,12 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-
   @Input() userData: any = {};
 
   constructor(
     public fetchApiData: FetchApiDataService,
-    public router: Router
+    public router: Router,
+    public snackBar: MatSnackBar,
   ) {}
 
   ngOnInit(): void {
@@ -28,5 +29,16 @@ export class ProfileComponent implements OnInit {
       this.userData = res;
       return this.userData;
     });
+  }
+
+  removeFavorite(movieid: string, title: string): void {
+    let user = JSON.parse(localStorage.getItem('user') || '');
+    this.fetchApiData.removeFromFavorites(user.username, movieid)
+      .subscribe((resp: any) => {
+        this.snackBar.open(`${title} has been removed from your list of favorites.`, 'OK', {
+          duration: 3000,
+        });
+        this.ngOnInit();
+      });
   }
 }

@@ -51,7 +51,7 @@ export class FetchApiDataService {
 
   public userLogin(userData: any): Observable<any> {
     console.log(userData);
-    
+
     return this.http
       .post(apiUrl + 'login', userData)
       .pipe(catchError(this.handleError));
@@ -164,8 +164,7 @@ export class FetchApiDataService {
     //const { movieId } = movieid;
 
     return this.http
-      .post(
-        apiUrl + `users/${username}/favorites/${movieid}`,
+      .post(apiUrl + `users/${username}/favorites/${movieid}`,
         {},
         {
           headers: new HttpHeaders({
@@ -175,14 +174,15 @@ export class FetchApiDataService {
       )
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
-  removeFromFavorites(userData: any, movieid: any): Observable<any> {
-    console.log(userData);
+  removeFromFavorites(username: string, movieid: any): Observable<any> {
+    //console.log(userData);
     const token = localStorage.getItem('token');
-    const { username } = userData;
-    const { movieId } = movieid;
+    // const { username } = userData;
+    // const { movieId } = movieid;
 
     return this.http
-      .delete(apiUrl + `users/${username}/favorites/${movieId}`, {
+      .delete(apiUrl + `users/${username}/favorites/${movieid}`, 
+      {
         headers: new HttpHeaders({
           Authorization: 'Bearer ' + token,
         }),
