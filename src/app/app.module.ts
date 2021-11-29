@@ -28,13 +28,16 @@ import { DirectorComponent } from './director/director.component';
 import { GenreComponent } from './genre/genre.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { UserDeleteComponent } from './user-delete/user-delete.component';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: AllMoviesComponent },
+  { path: 'details', component: AllMoviesComponent },
+  { path: 'genres', component: AllMoviesComponent },
+  { path: 'directors', component: AllMoviesComponent },
   { path: 'profile', component: ProfileComponent },
-  
-  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: '', redirectTo: 'movies', pathMatch: 'prefix' },
   { path: '**', component: WelcomePageComponent },
 ];
 
@@ -51,6 +54,7 @@ const appRoutes: Routes = [
     ProfileComponent,
     NavbarComponent,
     UserUpdateComponent,
+    UserDeleteComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

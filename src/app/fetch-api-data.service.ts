@@ -129,11 +129,8 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
 
-  deleteUser(userData: any): Observable<any> {
-    console.log(userData);
+  deleteUser(username: string): Observable<any> {
     const token = localStorage.getItem('token');
-    const { username } = userData;
-    console.log(token);
 
     return this.http
       .delete(apiUrl + `users/${username}`, {
@@ -145,9 +142,7 @@ export class FetchApiDataService {
   }
 
   getAllFavorites(username: string): Observable<any> {
-    //console.log(userData);
     const token = localStorage.getItem('token');
-    // const { username } = userData;
 
     return this.http
       .get(apiUrl + `users/${username}/favorites`, {
@@ -158,10 +153,7 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   addToFavorites(username: string, movieid: any): Observable<any> {
-    //console.log(userData);
     const token = localStorage.getItem('token');
-    //const { username } = userData;
-    //const { movieId } = movieid;
 
     return this.http
       .post(apiUrl + `users/${username}/favorites/${movieid}`,
@@ -175,10 +167,7 @@ export class FetchApiDataService {
       .pipe(map(this.extractResponseData), catchError(this.handleError));
   }
   removeFromFavorites(username: string, movieid: any): Observable<any> {
-    //console.log(userData);
     const token = localStorage.getItem('token');
-    // const { username } = userData;
-    // const { movieId } = movieid;
 
     return this.http
       .delete(apiUrl + `users/${username}/favorites/${movieid}`, 

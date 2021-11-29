@@ -31,13 +31,13 @@ export class UserRegistrationFormComponent implements OnInit {
         this.dialogRef.close(); // This will close the modal on success
         console.log(response);
         this.snackBar.open(
-          `You are now registered as ${this.userData.username} and can now login`,
+          `You are now registered as ${this.userData.username}!`,
           'OK',
           {
             duration: 3000,
           }
         );
-        this.router.navigate(['']);
+        this.router.navigate(['movies']);
       },
       (response) => {
         console.log(response);

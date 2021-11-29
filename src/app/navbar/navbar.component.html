@@ -7,14 +7,17 @@
     src="../assets/MovieManiac-logo.png"
   />
   <mat-nav-list>
-    <mat-list-item>
-      <a matLine routerLink="/movies">HOME</a>
+    <mat-list-item routerLinkActive="active current">
+      <a matLine routerLink="/welcome">HOME</a>
     </mat-list-item>
-    <mat-list-item>
+    <mat-list-item routerLinkActive="active current">
+      <a matLine routerLink="/movies">MOVIES</a>
+    </mat-list-item>
+    <mat-list-item routerLinkActive="active current">
       <a matLine routerLink="/profile">PROFILE</a>
     </mat-list-item>
-    <mat-list-item>
-      <a matLine routerLink="/profile/logout">LOGOUT</a>
+    <mat-list-item routerLinkActive="active current">
+      <a matLine routerLink="/profile/logout" (click)="logout()">LOGOUT</a>
     </mat-list-item>
   </mat-nav-list> 
 </div>

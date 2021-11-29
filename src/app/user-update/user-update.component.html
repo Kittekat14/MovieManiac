@@ -5,39 +5,40 @@
     </mat-card-header>
     <mat-card-content>
       <form>
-        <mat-form-field>
+        <mat-form-field class="update-form-field">
           <input
             matInput
+            class="user-update-input"
             [(ngModel)]="userData.username"
             placeholder="Username"
             type="text"
             name="Username"
-            disabled
           > Your new Username will be : {{ userData.username }}
           </mat-form-field>
-          <mat-form-field>
+          <mat-form-field class="update-form-field">
           <input
             matInput
+            class="user-update-input"
             [(ngModel)]="userData.password"
             placeholder="Password"
             type = "password"
             name="Password"
-            required
           > Your new Password will be : {{ userData.password }}
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="update-form-field">
           <input
             matInput
+            class="user-update-input"
             [(ngModel)]="userData.email"
             placeholder="Email"
             type = "email"
             name="Email"
-            required
           > Your new Email Address will be : {{ userData.email }}
         </mat-form-field>
-        <mat-form-field>
+        <mat-form-field class="update-form-field">
           <input
             matInput
+            class="user-update-input"
             [(ngModel)]="userData.birthdate"
             placeholder="Birthday"  
             type = "date"
