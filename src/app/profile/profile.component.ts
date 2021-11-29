@@ -9,8 +9,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent implements OnInit {
-  user: any = JSON.parse(localStorage.getItem('user') || '');
-  favorites: any[] = this.user.favorites;
 
   @Input() userData: any = {};
 

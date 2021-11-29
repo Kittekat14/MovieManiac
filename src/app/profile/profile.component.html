@@ -21,7 +21,7 @@
   </mat-list-item>
   <mat-list-item>
     <h3 matLine> Your Favorite Movies </h3>
-    <p matLine>{{ userData.favorites.title }} </p>
+    <p *ngFor="let favorite of userData.favorites" matLine>{{ favorite.title }} </p>
   </mat-list-item>
 </mat-list>
 
