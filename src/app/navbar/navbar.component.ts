@@ -11,10 +11,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  goToWelcomePage(): void {
-    this.router.navigate(['welcome']);
-  }
-
   goToMoviesPage(): void {
     this.router.navigate(['movies']);
   }
