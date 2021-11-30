@@ -42,7 +42,6 @@ export class FetchApiDataService {
 
   // Making Api Calls to all Api Endpoints:
   public userRegistration(userData: any): Observable<any> {
-    console.log(userData);
 
     return this.http
       .post(apiUrl + 'users', userData)
@@ -50,7 +49,6 @@ export class FetchApiDataService {
   }
 
   public userLogin(userData: any): Observable<any> {
-    console.log(userData);
 
     return this.http
       .post(apiUrl + 'login', userData)
