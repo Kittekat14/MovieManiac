@@ -33,11 +33,8 @@ import { UserDeleteComponent } from './user-delete/user-delete.component';
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: AllMoviesComponent },
-  { path: 'details', component: AllMoviesComponent },
-  { path: 'genres', component: AllMoviesComponent },
-  { path: 'directors', component: AllMoviesComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: 'movies', pathMatch: 'prefix' },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
   { path: '**', component: WelcomePageComponent },
 ];
 

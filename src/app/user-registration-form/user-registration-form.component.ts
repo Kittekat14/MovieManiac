@@ -29,9 +29,8 @@ export class UserRegistrationFormComponent implements OnInit {
       (response) => {
         // Logic for a successful user registration goes here! (To be implemented)
         this.dialogRef.close(); // This will close the modal on success
-        console.log(response);
         this.snackBar.open(
-          `You are now registered as ${this.userData.username}!`,
+          `You are now registered as ${this.userData.username} and can login!`,
           'OK',
           {
             duration: 3000,
@@ -40,7 +39,6 @@ export class UserRegistrationFormComponent implements OnInit {
         this.router.navigate(['movies']);
       },
       (response) => {
-        console.log(response);
         this.snackBar.open(response, 'OK', {
           duration: 3000,
         });
