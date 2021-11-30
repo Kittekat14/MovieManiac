@@ -6,6 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'MovieManiac';
+  title: string = 'MovieManiac';
+  isLoggedIn: boolean = false;
 
+  toggleNavBar(): void {
+    this.isLoggedIn = true;
+  }
 }
