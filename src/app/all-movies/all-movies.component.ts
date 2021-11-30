@@ -31,7 +31,6 @@ export class AllMoviesComponent implements OnInit {
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
-      console.log(this.movies);
       return this.movies;
     });
   }
@@ -39,7 +38,6 @@ export class AllMoviesComponent implements OnInit {
   getFavorites(): void {
     this.fetchApiData.getUser(this.user.username).subscribe((res: any) => {
       this.favorites = res.favorites;
-      console.log(this.favorites);
       return this.favorites;
     });
   }
