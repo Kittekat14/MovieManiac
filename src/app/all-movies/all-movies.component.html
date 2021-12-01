@@ -34,7 +34,12 @@
             (click)="openMovieDialog(movie.title, movie.description, movie.year, movie.genre, movie.director, movie.actors)"
               >Details
           </button>
-          <button mat-button (click)="addToFavs(movie._id, movie.title)">ADD TO FAVORITES</button>
+          
+          <button mat-button (click)="toggleFavs(movie)">
+            <mat-icon *ngIf="isFav(movie._id)">favorite</mat-icon>
+            <mat-icon *ngIf="!isFav(movie._id)">favorite_border</mat-icon>
+          </button>
+
       </mat-card-actions>
     </mat-card>
 

@@ -15,7 +15,17 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class AllMoviesComponent implements OnInit {
   user: any = JSON.parse(localStorage.getItem('user') || '');
   movies: any[] = [];
-  favorites: any[] = this.user.favorites; 
+  favorites: any[] = this.user.favorites;
+
+  isFav(id: any): boolean {
+    return this.favorites.some((fav) => fav._id === id);
+  }
+
+  toggleFavs(movie: any): void {
+    this.isFav(movie._id)
+      ? this.removeFavorite(movie._id, movie.title)
+      : this.addToFavs(movie._id, movie.title);
+  }
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -34,7 +44,7 @@ export class AllMoviesComponent implements OnInit {
       return this.movies;
     });
   }
-  
+
   getFavorites(): void {
     this.fetchApiData.getUser(this.user.username).subscribe((res: any) => {
       this.favorites = res.favorites;
@@ -42,19 +52,33 @@ export class AllMoviesComponent implements OnInit {
     });
   }
 
-
   addToFavs(movieid: string, title: string): void {
-
-    this.fetchApiData.addToFavorites(this.user.username, movieid).subscribe((resp: any) => {
-      this.snackBar.open(`${title} has been added to your favorites.`, 'OK', {
-        duration: 3000,
+    this.fetchApiData
+      .addToFavorites(this.user.username, movieid)
+      .subscribe((resp: any) => {
+        this.snackBar.open(`${title} has been added to your favorites.`, 'OK', {
+          duration: 3000,
+        });
+        this.ngOnInit();
       });
-      this.ngOnInit();
-    });
     return this.getFavorites();
   }
-  
 
+  removeFavorite(movieid: string, title: string): void {
+    let user = JSON.parse(localStorage.getItem('user') || '');
+    this.fetchApiData
+      .removeFromFavorites(user.username, movieid)
+      .subscribe((resp: any) => {
+        this.snackBar.open(
+          `${title} has been removed from your list of favorites.`,
+          'OK',
+          {
+            duration: 3000,
+          }
+        );
+        this.ngOnInit();
+      });
+  }
 
   openMovieDialog(
     title: string,
@@ -73,15 +97,11 @@ export class AllMoviesComponent implements OnInit {
         director,
         actors,
       },
-      width: '500px'
+      width: '500px',
     });
   }
 
-  openDirectorDialog(
-    name: string,
-    bio: string,
-    birthyear: number
-  ): void {
+  openDirectorDialog(name: string, bio: string, birthyear: number): void {
     this.dialog.open(DirectorComponent, {
       data: {
         name,
@@ -92,14 +112,11 @@ export class AllMoviesComponent implements OnInit {
     });
   }
 
-  openGenreDialog(
-    name: string,
-    description: string
-  ): void {
+  openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {
         name,
-        description
+        description,
       },
       width: '500px',
     });
