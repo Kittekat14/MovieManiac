@@ -9,7 +9,6 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 
-
 @Component({
   selector: 'app-user-login-form',
   templateUrl: './user-login-form.component.html',
@@ -18,7 +17,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 export class UserLoginFormComponent implements OnInit {
   @Input() userData = { username: '', password: '' };
   token = localStorage.getItem('token');
-
+  isLoggedIn = false;
 
   constructor(
     public fetchApiData: FetchApiDataService,
@@ -28,6 +27,7 @@ export class UserLoginFormComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {}
+
 
   // This is the function responsible for sending the form inputs to the backend
   loginUser(token: any): void {

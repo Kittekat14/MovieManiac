@@ -1,37 +1,43 @@
-<div class="movie-card">
-	<mat-card *ngFor="let movie of movies" >
-    <mat-card-header>
+<div class="main-page">
+  
+  <app-navbar>User is logged out.</app-navbar>
 
-        <mat-card-title>{{movie.title}}</mat-card-title>
-        <mat-card-subtitle>Directed by: {{movie.director.name}}</mat-card-subtitle>
+  <div class="movie-card">
+    <mat-card *ngFor="let movie of movies" >
+      <mat-card-header>
 
-    </mat-card-header>
-    
-        
-    <img src={{movie.imageUrl}} alt={{movie.title}} width="150"/>
+          <mat-card-title>{{movie.title}}</mat-card-title>
+          <mat-card-subtitle>Directed by: {{movie.director.name}}</mat-card-subtitle>
 
-    
-    <mat-card-actions>
-        <button
-          mat-button
-          selected class="genre-button"
-          (click)='openGenreDialog(movie.genre.name, movie.genre.description)'
-          >{{ movie.genre.name | uppercase }}
-        </button>
-        <button
-          mat-button
-          class="director-button"
-          (click)='openDirectorDialog(movie.director.name, movie.director.bio, movie.director.birthyear)'
-            >{{movie.director.name}}
-        </button>
-        <button
-          mat-button
-          class="details-button"
-          (click)="openMovieDialog(movie.title, movie.description, movie.year, movie.genre, movie.director, movie.actors)"
-            >Details
-        </button>
-				<button mat-button (click)="addToFavs(movie._id, movie.title)">ADD TO FAVORITES</button>
-    </mat-card-actions>
-	</mat-card>
+      </mat-card-header>
+      
+          
+      <img src={{movie.imageUrl}} alt={{movie.title}} width="150"/>
+
+      
+      <mat-card-actions>
+          <button
+            mat-button
+            selected class="genre-button"
+            (click)='openGenreDialog(movie.genre.name, movie.genre.description)'
+            >{{ movie.genre.name | uppercase }}
+          </button>
+          <button
+            mat-button
+            class="director-button"
+            (click)='openDirectorDialog(movie.director.name, movie.director.bio, movie.director.birthyear)'
+              >{{movie.director.name}}
+          </button>
+          <button
+            mat-button
+            class="details-button"
+            (click)="openMovieDialog(movie.title, movie.description, movie.year, movie.genre, movie.director, movie.actors)"
+              >Details
+          </button>
+          <button mat-button (click)="addToFavs(movie._id, movie.title)">ADD TO FAVORITES</button>
+      </mat-card-actions>
+    </mat-card>
+
+  </div>
 
 </div>

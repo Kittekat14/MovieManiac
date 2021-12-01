@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 import { UserLoginFormComponent } from '../user-login-form/user-login-form.component';
@@ -10,8 +10,11 @@ import { UserRegistrationFormComponent } from '../user-registration-form/user-re
   styleUrls: ['./welcome-page.component.scss'],
 })
 export class WelcomePageComponent implements OnInit {
+
   constructor(public dialog: MatDialog) {}
+
   ngOnInit(): void {}
+  
 
   // this is the function that will open the dialog after clickling signup button
   openUserRegistrationDialog(): void {
@@ -25,6 +28,4 @@ export class WelcomePageComponent implements OnInit {
       width: '480px',
     });
   }
-
-
 }
