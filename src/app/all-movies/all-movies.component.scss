@@ -1,29 +1,29 @@
-@media screen and (min-width: 1200px) {
+@media all and (min-width: 1200px) {
     .movie-card {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 }
-@media screen and (max-width: 1199px) {
+@media all and (max-width: 1199px) {
     .movie-card {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 }
-@media screen and (max-width: 780px) {
+@media all and (max-width: 780px) {
    .movie-card {
     display: grid;
     grid-template-columns: 1fr 1fr;
     }
 }
-@media screen and (max-width: 400px) {
+@media all and (max-width: 400px) {
 
     .movie-card {
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
 }
-@media screen and (max-width: 360px) {
+@media all and (max-width: 360px) {
 
     .movie-card {
         display: grid;
