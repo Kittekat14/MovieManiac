@@ -35,7 +35,7 @@ export class UserLoginFormComponent implements OnInit {
    * The function responsible for sending the form inputs to the backend
    * A snack bar element is shown, holding a message with the result of the operation.
    */
-  loginUser(token: any): void {
+  loginUser(): void {
     this.fetchApiData.userLogin(this.userData).subscribe(
       (response) => {
         /**
