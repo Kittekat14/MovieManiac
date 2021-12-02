@@ -9,7 +9,6 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./one-movie.component.scss'],
 })
 export class OneMovieComponent implements OnInit {
-
   constructor(
     public fetchApiData: FetchApiDataService,
     public dialogRef: MatDialogRef<OneMovieComponent>,
@@ -27,7 +26,9 @@ export class OneMovieComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // This is the function responsible for sending the form inputs to the backend
+  /** 
+   * function responsible for fetching single movie from backend
+  */
   showMovie(): void {
     this.fetchApiData.getOneMovie(this.movieData.title).subscribe(
       (result) => {

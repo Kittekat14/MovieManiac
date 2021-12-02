@@ -12,6 +12,9 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./user-registration-form.component.scss'],
 })
 export class UserRegistrationFormComponent implements OnInit {
+  /**
+   * The Input decorator binds the form input values to the userData object
+   */
   @Input() userData = { username: '', password: '', email: '', birthdate: '' };
 
   constructor(
@@ -23,11 +26,15 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  // This is the function responsible for sending the form inputs to the backend
+  /** 
+   * The function responsible for sending the form inputs to the backend 
+   */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe(
       (response) => {
-        // Logic for a successful user registration goes here! (To be implemented)
+        /**
+         * Logic for a successful user registration
+        */
         this.dialogRef.close(); // This will close the modal on success
         this.snackBar.open(
           `You are now registered as ${this.userData.username} and can login!`,
@@ -36,7 +43,6 @@ export class UserRegistrationFormComponent implements OnInit {
             duration: 3000,
           }
         );
-        this.router.navigate(['movies']);
       },
       (response) => {
         this.snackBar.open(response, 'OK', {

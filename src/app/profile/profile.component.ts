@@ -15,14 +15,17 @@ export class ProfileComponent implements OnInit {
   constructor(
     public fetchApiData: FetchApiDataService,
     public router: Router,
-    public snackBar: MatSnackBar,
+    public snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
     this.showUser();
   }
 
-  // Here there should be the function that calls getUser function in fetchDataApi file
+  /**
+   * the function responsible for calling getUser function in fetchDataApi file
+   *
+   */
   showUser(): void {
     let user = JSON.parse(localStorage.getItem('user') || '');
     this.fetchApiData.getUser(user.username).subscribe((res: any) => {
@@ -30,14 +33,22 @@ export class ProfileComponent implements OnInit {
       return this.userData;
     });
   }
-
+  /**
+   * the function responsible for removing favorite movie in profile by click on remove button
+   *
+   */
   removeFavorite(movieid: string, title: string): void {
     let user = JSON.parse(localStorage.getItem('user') || '');
-    this.fetchApiData.removeFromFavorites(user.username, movieid)
+    this.fetchApiData
+      .removeFromFavorites(user.username, movieid)
       .subscribe((resp: any) => {
-        this.snackBar.open(`${title} has been removed from your list of favorites.`, 'OK', {
-          duration: 3000,
-        });
+        this.snackBar.open(
+          `${title} has been removed from your list of favorites.`,
+          'OK',
+          {
+            duration: 3000,
+          }
+        );
         this.ngOnInit();
       });
   }

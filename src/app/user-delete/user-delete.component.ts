@@ -6,19 +6,20 @@ import { FetchApiDataService } from '../fetch-api-data.service';
 @Component({
   selector: 'app-user-delete',
   templateUrl: './user-delete.component.html',
-  styleUrls: ['./user-delete.component.scss']
+  styleUrls: ['./user-delete.component.scss'],
 })
 export class UserDeleteComponent implements OnInit {
-
   constructor(
     public fetchApiData: FetchApiDataService,
     public snackBar: MatSnackBar,
     public router: Router
-  ) { }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
+  /**
+   * function responsible for deleting a user
+   */
   deleteUser(): void {
     if (confirm('Are you sure you want to delete your profile?')) {
       localStorage.clear();
@@ -27,7 +28,5 @@ export class UserDeleteComponent implements OnInit {
         duration: 3000,
       });
     }
-    
   }
-
 }

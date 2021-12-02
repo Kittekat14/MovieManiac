@@ -15,9 +15,9 @@ export class DirectorComponent implements OnInit {
     public snackBar: MatSnackBar,
     @Inject(MAT_DIALOG_DATA)
     public directorData: {
-      name: string,
-      bio: string,
-      birthyear: number
+      name: string;
+      bio: string;
+      birthyear: number;
     }
   ) {}
 

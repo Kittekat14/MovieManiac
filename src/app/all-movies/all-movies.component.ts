@@ -1,11 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { FetchApiDataService } from '../fetch-api-data.service';
 import { OneMovieComponent } from '../one-movie/one-movie.component';
 import { DirectorComponent } from '../director/director.component';
 import { GenreComponent } from '../genre/genre.component';
-import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-all-movies',
@@ -17,10 +17,15 @@ export class AllMoviesComponent implements OnInit {
   movies: any[] = [];
   favorites: any[] = this.user.favorites;
 
+  /**
+   * function that sees if movieid is "some"where in array of favorites
+   */
   isFav(id: any): boolean {
     return this.favorites.some((fav) => fav._id === id);
   }
-
+  /**
+   * function toggles favorite status depending on if it already is in favorites array or not
+   */
   toggleFavs(movie: any): void {
     this.isFav(movie._id)
       ? this.removeFavorite(movie._id, movie.title)
@@ -38,6 +43,9 @@ export class AllMoviesComponent implements OnInit {
     this.getFavorites();
   }
 
+  /**
+   * function responsible for fetching all movies from backend
+   */
   getMovies(): void {
     this.fetchApiData.getAllMovies().subscribe((resp: any) => {
       this.movies = resp;
@@ -45,6 +53,9 @@ export class AllMoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * function responsible for fetching user's favorites from backend
+   */
   getFavorites(): void {
     this.fetchApiData.getUser(this.user.username).subscribe((res: any) => {
       this.favorites = res.favorites;
@@ -52,6 +63,9 @@ export class AllMoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * function responsible for adding movies to favorites array in backend
+   */
   addToFavs(movieid: string, title: string): void {
     this.fetchApiData
       .addToFavorites(this.user.username, movieid)
@@ -64,6 +78,9 @@ export class AllMoviesComponent implements OnInit {
     return this.getFavorites();
   }
 
+  /**
+   * function responsible for removing movies from favorites array in backend
+   */
   removeFavorite(movieid: string, title: string): void {
     let user = JSON.parse(localStorage.getItem('user') || '');
     this.fetchApiData
@@ -80,6 +97,9 @@ export class AllMoviesComponent implements OnInit {
       });
   }
 
+  /**
+   * Function that will open the MovieDetails dialog window
+   */
   openMovieDialog(
     title: string,
     description: string,
@@ -101,6 +121,9 @@ export class AllMoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * Function that will open the Director dialog window
+   */
   openDirectorDialog(name: string, bio: string, birthyear: number): void {
     this.dialog.open(DirectorComponent, {
       data: {
@@ -112,6 +135,9 @@ export class AllMoviesComponent implements OnInit {
     });
   }
 
+  /**
+   * Function that will open the Genre dialog window
+   */
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreComponent, {
       data: {

@@ -8,9 +8,8 @@ import { FetchApiDataService } from '../fetch-api-data.service';
   styleUrls: ['./user-update.component.scss'],
 })
 export class UserUpdateComponent implements OnInit {
-
   user: any = JSON.parse(localStorage.getItem('user') || '');
-  
+
   @Input() userData = {
     username: this.user.username,
     password: '',
@@ -25,15 +24,22 @@ export class UserUpdateComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  /**
+   * function responsible for updating user data and sending it to backend
+   */
   changeUser(): void {
-    this.fetchApiData
-      .editUser(this.user.username, this.userData)
-      .subscribe((res) => {
-        //updating the localStorage with the updated user
+    this.fetchApiData.editUser(this.user.username, this.userData).subscribe(
+      (res) => {
+        /** updating the localStorage with the updated user
+         *
+         */
         localStorage.setItem('user', JSON.stringify(res));
         this.snackBar.open('You successfully updated your profile!', 'OK', {
           duration: 2000,
         });
+        /** taking time for window to reload
+         * 
+         */
         setTimeout(() => {
           window.location.reload();
         }, 2000);
@@ -45,6 +51,7 @@ export class UserUpdateComponent implements OnInit {
         setTimeout(() => {
           window.location.reload();
         }, 2000);
-      });
+      }
+    );
   }
 }
