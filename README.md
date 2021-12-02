@@ -1,6 +1,15 @@
 # MovieManiac
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.0.2.
+The app is written in Angular 13, with the help of Node.js 16.13.0 and npm (version 8). Starting with a user registration form and then getting past the login form, the user lands on the main page, where he can view movie cards and click on them to get more information. This single-page, responsive movie app is built with routing and several interface views. It supports the existing server-side (Movie-API, also on GitHub) by facilitating user requests and rendering the response from the server-side. The application is designed using Angular Material (v13.0.2).
+
+Other technologies:
+- Typedoc (comments in codebase)
+- GitHub Pages (Hosting Service)
+
+Problems I faced:
+-	Components have each different functionalities which you easily can get confused with and therefore must be very specific with your naming (e.g. of functions)
+-	Typedoc wasn’t easy to implement, I had to name every entry point and couldn’t just name the folder where all the addressed files were
 
 ## Development server
 
