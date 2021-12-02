@@ -1,4 +1,4 @@
 {
-  "entryPoints": ["src/main.ts"],
+  "entryPoints": ["src/app/app.component.ts", "src/app/fetch-api-data.service.ts", "src/app/user-login-form/user-login-form.component.ts", "src/app/user-update/user-update.component.ts", "src/app/user-registration-form/user-registration-form.component.ts", "src/app/user-delete/user-delete.component.ts", "src/app/welcome-page/welcome-page.component.ts", "src/app/one-movie/one-movie.component.ts", "src/app/profile/profile.component.ts", "src/app/navbar/navbar.component.ts", "src/app/genre/genre.component.ts", "src/app/director/director.component.ts", "src/app/all-movies/all-movies.component.ts"],
   "out": "docs"
 }
