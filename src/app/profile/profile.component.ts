@@ -35,7 +35,8 @@ export class ProfileComponent implements OnInit {
   }
   /**
    * the function responsible for removing favorite movie in profile by click on remove button
-   *
+   * @param movieid
+   * @param title
    */
   removeFavorite(movieid: string, title: string): void {
     let user = JSON.parse(localStorage.getItem('user') || '');
