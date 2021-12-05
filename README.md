@@ -15,12 +15,11 @@ The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and *
 
 ## Features:
 
-    The app displays a welcome view where users will be able to either log in or register an account
-    Once authenticated, the user should now view all movies
-    Upon clicking on a particular movie, users will be taken to a single movie view, where additional movie details will be displayed.
-    The single movie contains the following feautres: a button that when clicked shows a dialog containing details about the director; a button that when clicked shows a dialog containing details about the genre; a button that when clicked shows a dialog containing the synopsis of the movie; a button (heart shaped) that lets the user add the movie to their list of favorites movies.
-    The user should also be able to access their profile view with the options of editing it or delete it.
-
+- The app displays a welcome view, where users will be able to either log in or register an account
+- Once authenticated, the user should see all movies
+- Upon clicking on a particular movie, users will be taken to a single movie view, where additional movie details will be displayed
+- The single movie view contains buttons that when clicked show dialogs containing details about the director, the genre and the detailed information of a movie. On the movie synopsis card, there is also a button (heart shaped) that lets the user add the movie to their list of favorite movies
+- A user can also access his profile, where he can edit or delete the profile
 
 ## Development server
 
