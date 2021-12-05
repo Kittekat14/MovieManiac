@@ -5,8 +5,8 @@ The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and *
 
 ## Screenshots:
 
-![responsive-on-Samsung-Galaxy-S10](https://user-images.githubusercontent.com/83455469/144748125-119c3bb0-3191-457b-b147-ae5035ac7cf9.PNG | width=100)
-![responsive-on-iPhone](https://user-images.githubusercontent.com/83455469/144748126-bd6bb786-7f30-48f6-9125-98a437b16e7d.PNG | width=100)
+![responsive-on-Samsung-Galaxy-S10](https://user-images.githubusercontent.com/83455469/144748125-119c3bb0-3191-457b-b147-ae5035ac7cf9.PNG =100x20)
+![responsive-on-iPhone](https://user-images.githubusercontent.com/83455469/144748126-bd6bb786-7f30-48f6-9125-98a437b16e7d.PNG =100x20)
 
 ![all-movies-component](https://user-images.githubusercontent.com/83455469/144748147-e4aef60a-06b9-4e5a-841a-4bfc36a66842.PNG)
 
