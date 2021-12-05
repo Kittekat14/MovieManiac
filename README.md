@@ -3,6 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and **npm (version 8)**. Starting with a user registration form and then getting past the login form, the user lands on the main page, where he can view movie cards and click on them to get more information. This single-page, responsive movie app is built with routing and several interface views. It supports the existing server-side (Movie-API, also on GitHub) by facilitating user requests and rendering the response from the server-side. The application is designed using **Angular Material (v13.0.2)**.
 
+
 ## Other Technologies:
 
 - Typedoc (comments in codebase)
@@ -18,8 +19,8 @@ The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and *
 - The app displays a welcome view, where users will be able to either log in or register an account
 - Once authenticated, the user can view all movies
 - Upon clicking on a particular movie, users will be taken to a single movie view, where additional movie details will be displayed
-- The single movie view contains buttons that when clicked show dialogs containing details about the director, the genre and the detailed information of a movie. On the movie synopsis card, there is also a button (heart shaped) that lets the user add the movie to their list of favorite movies
-- A user can also access his profile, where he can edit or delete the profile
+- The single movie view contains buttons, that open dialogs containing details about the director, the genre and additional informations of a movie. On the movie synopsis card, there is also a button (heart-shaped), that lets the user add the movie to their list of favorite movies
+- A user can also access his profile, where he can edit or delete his profile
 
 ## Development server
 
