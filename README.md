@@ -3,7 +3,7 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli).
 The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and **npm (version 8)**. Starting with a user registration form and then getting past the login form, the user lands on the main page, where he can view movie cards and click on them to get more information. This single-page, responsive movie app is built with routing and several interface views. It supports the existing server-side (Movie-API, also on GitHub) by facilitating user requests and rendering the response from the server-side. The application is designed using **Angular Material (v13.0.2)**.
 
-(Movie pictures from [Amazon](https://m.media-amazon.com/images))
+(Movie pictures from [Amazon](https://m.media-amazon.com/images), logo created with [Canva](https://www.canva.com/))
 
 ![MovieManiac-on-phone](https://user-images.githubusercontent.com/83455469/144748679-55da6e50-3f43-449a-b721-c56ef2ba74f9.png)
 
