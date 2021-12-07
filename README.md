@@ -34,7 +34,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Contact me on LinkedIn:
-[My Profile](https://www.linkedin.com/in/katrin-hofstetter-25b945181/).
-[My Portfolio Website](https://Kittekat14.github.io/portfolio-website).
+## Contact me on LinkedIn or view my portfolio website:
+* [My Profile](https://www.linkedin.com/in/katrin-hofstetter-25b945181/)
+* [My Portfolio Website](https://Kittekat14.github.io/portfolio-website)
 
