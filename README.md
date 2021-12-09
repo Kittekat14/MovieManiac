@@ -18,6 +18,9 @@ The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and *
 * As a user, I want to be able to receive information on movies, directors, and genres so that I can learn more about movies I’ve watched or am interested in
 * As a user, I want to be able to create a profile so I can save data about my favorite movies
 
+## User Flows:
+<< Here come 3 arrow diagrams >> 
+
 ## Features:
 - The app displays a welcome view, where users will be able to either log in or register an account
 - Once authenticated, the user can view all movies
@@ -34,7 +37,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Contact me on LinkedIn or view my portfolio website:
-* [My Profile](https://www.linkedin.com/in/katrin-hofstetter-25b945181/)
+## Contact me on LinkedIn or check out my other projects:
+* [My LinkedIn Profile](https://www.linkedin.com/in/katrin-hofstetter-25b945181/)
 * [My Portfolio Website](https://Kittekat14.github.io/portfolio-website)
-
