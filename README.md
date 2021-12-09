@@ -19,7 +19,12 @@ The app is written in **Angular 13**, with the help of **Node.js 16.13.0** and *
 * As a user, I want to be able to create a profile so I can save data about my favorite movies
 
 ## User Flows:
-<< Here come 3 arrow diagrams >> 
+### Users want to get more information about a director of a certain movie:
+![Untitled Diagram-Page-2 drawio](https://user-images.githubusercontent.com/83455469/145390680-ca554e72-e9db-475a-bd63-ab70426a13a9.png)
+
+### Users want to get information about all movies for inspiraton what to watch and then add that movie to their watchlist in their profile:
+![Untitled Diagram-Page-1 drawio](https://user-images.githubusercontent.com/83455469/145390597-a4a92895-1abc-4375-b085-3142863274e6.png)
+
 
 ## Features:
 - The app displays a welcome view, where users will be able to either log in or register an account
