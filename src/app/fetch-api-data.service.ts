@@ -12,7 +12,7 @@ import {
 /**
  * @constant apiUrl Declaring the api url that will provide data for the client app
  */
-const apiUrl = 'https://actor-inspector.herokuapp.com/';
+const apiUrl = 'https://actor-inspector-8968a4bd052a.herokuapp.com/';
 
 @Injectable({
   providedIn: 'root', // to make component, where we're in, available in root level
